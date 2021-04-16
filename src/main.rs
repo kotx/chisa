@@ -30,7 +30,7 @@ impl ContentTypeMiddleware {
 impl tide::Middleware<()> for ContentTypeMiddleware {
     async fn handle(&self, request: tide::Request<()>, next: tide::Next<'_, ()>) -> tide::Result {
         let mut response = next.run(request).await;
-        response.append_header("Content-Type", &self.0);
+        response.insert_header("Content-Type", &self.0);
         Ok(response)
     }
 }
