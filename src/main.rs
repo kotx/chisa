@@ -4,8 +4,8 @@ async fn main() -> tide::Result<()> {
 
     let mut app = tide::new();
 
-    app.with(ContentTypeMiddleware::new("video/mp4"));
-    app.at("/*").serve_file("public/trap.gif")?;
+    app.with(ContentTypeMiddleware::new("image/gif"));
+    app.at("/*").serve_file("public/fumo.mp4")?;
 
     app.listen(format!(
         "{}:{}",
